@@ -19,13 +19,14 @@ const getCategoriaById = async (id) => {
     return result.rows[0];
 };
 
-const createCategoria = async (nome) => {
+const createCategoria = async (nome, descricao, ano_inicio) => {
     const result = await pool.query(
-        "INSERT INTO categorias (nome) VALUES ($1) RETURNING *",
-        [nome]
+        "INSERT INTO categorias (nome, descricao, ano_inicio) VALUES ($1, $2, $3) RETURNING *",
+        [nome, descricao, ano_inicio]
     );
     return result.rows[0];
-}
+};
+
 
 const updateCategoria = async (id, nome) => {
     const result = await pool.query(

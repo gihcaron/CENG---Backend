@@ -24,13 +24,13 @@ const getCategoriaById = async (req, res) => {
 
 const createCategoria = async (req, res) => {
     try {
-        const { nome } = req.body;
-        const newCategoria = await categoriaModel.createCategoria(nome);
+        const { nome, descricao, ano_inicio } = req.body;
+        const newCategoria = await categoriaModel.createCategoria(nome, descricao, ano_inicio);
         res.status(201).json(newCategoria);
     } catch (error) {
-	 console.log(error);
+        console.log(error);
         if (error.code === "23505") { 
-            return res.status(400).json({ message: "categoria já cadastrado." });
+            return res.status(400).json({ message: "Categoria já cadastrada." });
         }
         res.status(500).json({ message: "Erro ao criar categoria." });
     }
