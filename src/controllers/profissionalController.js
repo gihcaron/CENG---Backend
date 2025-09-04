@@ -39,11 +39,9 @@ const createProfissional = async (req, res) => {
         res.status(500).json({ message: "Erro ao criar profissional." });
     }
 };
-
 const updateProfissional = async (req, res) => {
     try {
-        const { nome } = req.body;
-        const updatedProfissional = await profissionalModel.updateProfissional(req.params.id, nome);
+        const updatedProfissional = await profissionalModel.updateProfissional(req.params.id, req.body);
         if (!updatedProfissional) {
             return res.status(404).json({ message: "Profissional não encontrado." });
         }
@@ -53,7 +51,6 @@ const updateProfissional = async (req, res) => {
         res.status(500).json({ message: "Erro ao atualizar profissional." });
     }
 };
-
 const deleteProfissional = async (req, res) => {
     try {
         const message = await profissionalModel.deleteProfissional(req.params.id);
@@ -64,8 +61,5 @@ const deleteProfissional = async (req, res) => {
     }
 };
 
-module.exports = {getProfissionais,getProfissionalById,
-    createProfissional,
-    updateProfissional,
-    deleteProfissional
+module.exports = {getProfissionais,getProfissionalById,createProfissional,updateProfissional,deleteProfissional
 };

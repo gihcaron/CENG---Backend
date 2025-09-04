@@ -40,10 +40,22 @@ const createProfissional = async (
     return result.rows[0];
 };
 
-const updateProfissional = async (id, nome) => {
+const updateProfissional = async (id, dados) => {
+    const { nome, idade, area_atuacao, biografia, redes_sociais, foto, pais, categoria_id } = dados;
+
     const result = await pool.query(
-        "UPDATE profissionais SET nome = $1 WHERE id = $2 RETURNING *",
-        [nome, id]
+        `UPDATE profissionais SET
+            nome = $1,
+            idade = $2,
+            area_atuacao = $3,
+            biografia = $4,
+            redes_sociais = $5,
+            foto = $6,
+            pais = $7,
+            categoria_id = $8
+        WHERE id = $9
+        RETURNING *`,
+        [nome, idade, area_atuacao, biografia, redes_sociais, foto, pais, categoria_id, id]
     );
     return result.rows[0];
 };
