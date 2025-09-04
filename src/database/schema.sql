@@ -36,5 +36,5 @@ INSERT INTO profissionais (id, nome, idade, area_atuacao, biografia, redes_socia
 (4, 'Bruna Tomaselli', 27, 'Piloto', 'Pilota catarinense, passou por Formula Junior Brasil, F4 Sul-Americana, U.S. F2000 e W Series. Estreou na Stock Series em 2023.', '@brunatomaselli', NULL, 'Brasil', 3),
 (5, 'Debora Rodrigues', 57, 'Piloto', 'Pilota de caminhões, empresaria e ex-apresentadora de TV, pioneira em competicoes de caminhões no Brasil.', 'deborarodriguesoficial',NULL, 'Brasil', 4),
 (6, 'Abbi Pulling', 21, 'Piloto', 'Britanica, iniciou no kart aos 9 anos. Conquistou titulo da F1 Academy em 2024 e atualmente e piloto de testes da Nissan Formula E.', '@abbipulling', NULL, 'Reino Unido', 5),
-(7, 'Janaina Thais', NULL, 'Engenheira de pista', 'Race Engineer na Porsche Cup Brasil desde 2017, especialista em telemetria, setup de carros e gestao de pneus.', "@jana_thais", NULL, 'Brasil', 6),
-(8, 'Antonella Bassani', 19, 'Piloto', 'Pilota catarinense, comecou no kart aos 4 anos, primeira mulher a conquistar pole na Porsche Cup Brasil aos 16 anos.', "@antonella_bassani", NULL, 'Brasil', 6);
+(7, 'Janaina Thais', NULL, 'Engenheira de pista', 'Race Engineer na Porsche Cup Brasil desde 2017, especialista em telemetria, setup de carros e gestao de pneus.', '@jana_thais', NULL, 'Brasil', 6),
+(8, 'Antonella Bassani', 19, 'Piloto', 'Pilota catarinense, comecou no kart aos 4 anos, primeira mulher a conquistar pole na Porsche Cup Brasil aos 16 anos.', '@antonella_bassani', NULL, 'Brasil', 6);
