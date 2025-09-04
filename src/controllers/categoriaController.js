@@ -1,68 +1,62 @@
-const profissionalModel = require('../models/profissionalModel');
+const categoriaModel = require('../models/categoriaModel');
 
-const getProfissionais = async (req, res) => {
+const getCategorias = async (req, res) => {
     try {
         const { nome } = req.query;
-        const profissionais = await profissionalModel.getProfissionais(nome);
-        res.json(profissionais);
+        const categorias = await categoriaModel.getCategorias(nome);
+        res.json(categorias);
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Erro ao buscar profissionais." });
+        res.status(500).json({ message: "Erro ao buscar categorias." });
     }
 };
 
-const getProfissionalById = async (req, res) => {
+const getCategoriaById = async (req, res) => {
     try {
-        const profissional = await profissionalModel.getProfissionalById(req.params.id);
-        if (!profissional) {
-            return res.status(404).json({ message: "Profissional não encontrado." });
+        const categoria = await categoriaModel.getCategoriaById(req.params.id);
+        if (!categoria) {
+            return res.status(404).json({ message: "categoria não encontrada." });
         }
-        res.json(profissional);
+        res.json(categoria);
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Erro ao buscar profissional." });
+        res.status(500).json({ message: "Erro ao buscar categoria." });
     }
 };
 
-const createProfissional = async (req, res) => {
+const createCategoria = async (req, res) => {
     try {
-        const { nome, idade, area_atuacao, biografia, redes_sociais, foto, pais, categoria_id } = req.body;
-        const newProfissional = await profissionalModel.createProfissional(
-            nome, idade, area_atuacao, biografia, redes_sociais, foto, pais, categoria_id
-        );
-        res.status(201).json(newProfissional);
+        const { nome, descricao, ano_inicio } = req.body;
+        const newCategoria = await categoriaModel.createCategoria(nome, descricao, ano_inicio);
+        res.status(201).json(newCategoria);
     } catch (error) {
         console.log(error);
-        if (error.code === "23505") {
-            return res.status(400).json({ message: "Profissional já cadastrado." });
+        if (error.code === "23505") { 
+            return res.status(400).json({ message: "Categoria já cadastrada." });
+
         }
-        res.status(500).json({ message: "Erro ao criar profissional." });
+        res.status(500).json({ message: "Erro ao criar categoria." });
     }
 };
 
-const updateProfissional = async (req, res) => {
+const updateCategoria = async (req, res) => {
     try {
         const { nome } = req.body;
-        const updatedProfissional = await profissionalModel.updateProfissional(req.params.id, nome);
-        if (!updatedProfissional) {
-            return res.status(404).json({ message: "Profissional não encontrado." });
+        const updateCategoria = await categoriaModel.updateCategoria(req.params.id, nome);
+        if (!updateCategoria) {
+            return res.status(404).json({ message: "categoria não encontrado." });
         }
-        res.json(updatedProfissional);
+        res.json(updateCategoria);
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Erro ao atualizar profissional." });
+        res.status(500).json({ message: "Erro ao atualizar categoria." });
     }
-};
+}
 
-const deleteProfissional = async (req, res) => {
+const  deleteCategoria = async (req, res) => {
     try {
-        const message = await profissionalModel.deleteProfissional(req.params.id);
+        const message = await categoriaModel. deleteCategoria(req.params.id);
         res.json(message);
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Erro ao deletar profissional." });
+        res.status(500).json({ message: "Erro ao deletar categoria." });
     }
 };
 
-module.exports = {getProfissionais,getProfissionalById,createProfissional,updateProfissional,deleteProfissional
-};
+module.exports = { getCategorias, getCategoriaById, createCategoria, updateCategoria,  deleteCategoria};
