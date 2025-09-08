@@ -52,9 +52,10 @@ const updateCategoria = async (req, res) => {
 
 const  deleteCategoria = async (req, res) => {
     try {
-        const message = await categoriaModel. deleteCategoria(req.params.id);
+        const message = await categoriaModel.deleteCategoria(req.params.id);
         res.json(message);
     } catch (error) {
+        console.log(error);
         res.status(500).json({ message: "Erro ao deletar categoria." });
     }
 };

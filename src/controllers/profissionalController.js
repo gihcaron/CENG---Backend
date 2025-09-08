@@ -62,5 +62,5 @@ const deleteProfissional = async (req, res) => {
     }
 };
 
-module.exports = {getProfissionais,getProfissionalById,createProfissional,updateProfissional,deleteProfissional
+module.exports = {getProfissionais, getProfissionalById, createProfissional, updateProfissional,deleteProfissional
 };
