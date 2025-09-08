@@ -1,4 +1,4 @@
---  cd automobilismo_db
+--  \c automobilismo_db
 
 CREATE TABLE categorias (
     id SERIAL PRIMARY KEY,

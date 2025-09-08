@@ -41,7 +41,8 @@ const createProfissional = async (req, res) => {
 };
 const updateProfissional = async (req, res) => {
     try {
-        const updatedProfissional = await profissionalModel.updateProfissional(req.params.id, req.body);
+const { nome, idade, area_atuacao, biografia, redes_sociais, foto, pais, categoria_id } = req.body;
+const updatedProfissional = await profissionalModel.updateProfissional(req.params.id, { nome, idade, area_atuacao, biografia, redes_sociais, foto, pais, categoria_id });
         if (!updatedProfissional) {
             return res.status(404).json({ message: "Profissional não encontrado." });
         }

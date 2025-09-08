@@ -37,7 +37,7 @@ const updateCategoria = async (id, nome) => {
 };
 
 const deleteCategoria = async (id) => { 
-    await pool.query("DELETE FROM categorias WHERE id = $1", [id]);
-    return { message: "Categoria deletada com sucesso." };
+    const result = await pool.query("DELETE FROM categorias WHERE id = $1 RETURNING *", [id]);
+    return { message: `Categoria com ID ${id}, nome ${result.rows[0].nome} e data de criação em ${result.rows[0].ano_inicio} deletada com sucesso.` };
 }
 module.exports = { getCategorias, getCategoriaById, createCategoria, updateCategoria, deleteCategoria };
