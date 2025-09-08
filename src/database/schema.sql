@@ -19,7 +19,7 @@ INSERT INTO categorias (id, nome, descricao, ano_inicio) VALUES
 
 CREATE TABLE profissionais (
    id SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
+    nome VARCHAR(100) UNIQUE NOT NULL,
     idade INTEGER,
     area_atuacao VARCHAR(100),
     biografia TEXT,

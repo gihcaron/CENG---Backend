@@ -64,8 +64,8 @@ const updateProfissional = async (id, dados) => {
 
 
 const deleteProfissional = async (id) => {
-    await pool.query("DELETE FROM profissionais WHERE id = $1", [id]);
-    return { message: "Profissional deletado com sucesso." };
+    const result = await pool.query("DELETE FROM profissionais WHERE id = $1 RETURNING *", [id]);
+return { message: `Profissional com ID ${id} deletado com sucesso.` };
 };
 
 module.exports = {getProfissionais, getProfissionalById, createProfissional, updateProfissional,deleteProfissional
