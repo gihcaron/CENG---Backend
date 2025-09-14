@@ -84,8 +84,7 @@ DB_PASSWORD= Sua_Senha
     descricao VARCHAR(1000),
     ano_inicio INTEGER
     );
-
-
+  ```sql
 INSERT INTO categorias (id, nome, descricao, ano_inicio) VALUES
 (1, 'Formula 1', 'Principal categoria de automobilismo internacional', 1950),
 (2, 'TCR South America', 'Categoria de turismo na América do Sul', 2021),
@@ -97,8 +96,8 @@ INSERT INTO categorias (id, nome, descricao, ano_inicio) VALUES
 (8, 'Porsche Cup Brasil', 'Categoria brasileira de carros esportivos Porsche', 2003),
 (9,'AMG Cup', 'Categoria brasileira de carros esportivos Mercedes-AMG', 2020);
 
-
-
+ ```
+ ```sql
 CREATE TABLE profissionais (
    id SERIAL PRIMARY KEY,
     nome VARCHAR(100) UNIQUE NOT NULL,
@@ -110,7 +109,8 @@ CREATE TABLE profissionais (
     pais VARCHAR(100),
     categoria_id INTEGER REFERENCES categorias(id) ON DELETE SET NULL
 );
-
+ ```
+ ```sql
 INSERT INTO profissionais (nome, idade, area_atuacao, biografia, redes_sociais, foto, pais, categoria_id) VALUES
 ( 'Stephanie Travers', NULL, 'Trackside Fluid Engineer', 'Engenheira de fluidos de pista. Primeira mulher negra a subir no podio da Formula 1 em 2020.', '@stephanietravers', 'uploads\\1757722453750-stephanie-travers.jpg', 'Estados Unidos', 1),
 ( 'Maria Nienkotter', 19, 'Piloto', 'Pilota catarinense que se consolidou no TCR South America Banco BRB ao volante de um Toyota Corolla.', '@marianienkotter', 'uploads\\1757724147327-WhatsApp Image 2025-09-07 at 21.27.04.jpeg', 'Brasil', 2),
@@ -131,7 +131,7 @@ INSERT INTO profissionais (nome, idade, area_atuacao, biografia, redes_sociais, 
 ('Patricia Alencar', 20, 'Engenheira Mecânica', 'Paulistana apaixonada por automobilismo desde a infância, Patricia começou como mecânica aos 15 anos e fez história ao se tornar a primeira mulher a atuar como mecânica oficial na Porsche Cup Brasil e na Stock Car. Atualmente estuda Engenharia Mecânica na Anhembi Morumbi, trabalha como engenheira de dados na Copa Hyundai HB20 e Fórmula Delta, chefia a EMS Rally Team no Sertões e no Brasileiro de Rally Baja, além de integrar projetos como o FIA Girls on Track Brasil na Mitsubishi Cup.', '@patriciafelixalencar', 'uploads\\1757786057578-PatriciaA.jpg', 'Brasil', 3),
 ('Rachel Loh', NULL, 'Engenheira de Pista', 'Rachel Loh é pioneira no automobilismo brasileiro, sendo a primeira engenheira de pista da Stock Car em 2016. Atualmente integra a Ipiranga Racing e também atua como comissária técnica da CBA, tendo fiscalizado provas de Fórmula 1 em São Paulo e Singapura. Formada em Engenharia Mecânica, acumula mais de 17 anos de experiência e participa de iniciativas como a Comissão Feminina de Automobilismo e o projeto FIA Girls on Track. Defensora da inclusão e da igualdade de gênero, inspira novas gerações de mulheres a seguirem carreira no esporte a motor.', '@kuanzein', 'uploads\\1757786235317-RachelL.jpg', 'Brasil', 3),
 ('Nathalia De Vivo', 34, 'Jornalista', 'Nathalia De Vivo é jornalista formada pela Universidade Presbiteriana Mackenzie em 2013, com experiência em mídias sociais e reportagem em veículos como Jornal Destak, eduK, Tazio, Grande Prêmio e a Stock Car. Atualmente é editora do site F1 Mania, onde lidera coberturas da Stock Car e Porsche Cup, além de atuar em pautas da Fórmula 1. Criadora da página Elas na Pista, soma passagens por eventos internacionais como F1, Fórmula E, WEC e Indy, com entrevistas em inglês e reportagens in loco.', '@itsmenathi', 'uploads\\1757786503647-NathaliaV.jpg', 'Brasil', 1);
-    ```
+ ```
 
 ### 8. Rodar o backend
 
