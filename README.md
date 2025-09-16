@@ -147,7 +147,7 @@ O servidor deve iniciar e exibir uma mensagem indicando que está rodando na por
 
 ### 9. Testar a aplicação
 
-- Abra o navegador e acesse: [http://localhost:3000](http://localhost:3000/api/profissionais) ou [http://localhost:3000/api/profissionais](http://localhost:3000/pai/categorias)
+- Abra o navegador e acesse: [http://localhost:3000/api/profissionais](http://localhost:3000/api/profissionais) ou [http://localhost:3000/api/categorias](http://localhost:3000/api/categorias)
 
 ---
 
