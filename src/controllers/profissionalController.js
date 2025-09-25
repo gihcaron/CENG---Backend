@@ -73,7 +73,7 @@ const updateProfissional = async (req, res) => {
       categoria_id,
     } = req.body;
     
-    // Validação para campos numéricos
+
     const idadeValidada = idade === "" || idade === "NULL" || idade === undefined ? null : parseInt(idade);
     const categoriaValidada = categoria_id === "" || categoria_id === "NULL" || categoria_id === undefined ? null : parseInt(categoria_id);
     

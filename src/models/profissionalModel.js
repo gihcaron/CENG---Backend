@@ -23,7 +23,10 @@ const getProfissionais = async (nome) => {
 
 const getProfissionalById = async (id) => {
     const result = await pool.query(
-        "SELECT * FROM profissionais WHERE id = $1",
+        `SELECT profissionais.*, categorias.nome AS categoria_nome
+        FROM profissionais
+        LEFT JOIN categorias ON profissionais.categoria_id = categorias.id
+        WHERE profissionais.id = $1`,
         [id]
     );
     return result.rows[0];
