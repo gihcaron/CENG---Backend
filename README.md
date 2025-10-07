@@ -162,7 +162,7 @@ INSERT INTO profissionais (nome, idade, area_atuacao, biografia, redes_sociais, 
 
 No terminal, execute:
 ```bash
-npm start
+npm run dev
 ```
 ou, se estiver usando Yarn:
 ```bash
